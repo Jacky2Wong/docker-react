@@ -10,3 +10,19 @@ before_install:
 # Because jest library has changed, we use: 
 script:
   - docker run -e CI=true xjacky2wong/docker-react npm run test -- --coverage
+
+deploy:
+  # edge: true
+  # provider: elasticbeanstalk
+  provider: elasticbeanstalk
+  region: "ap-southeast-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-2-496898353521"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  # secret_accesS_key:
+  #   secure: "$AWS_SECRET_KEY"
