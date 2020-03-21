@@ -9,10 +9,10 @@ before_install:
 
 # Because jest library has changed, we use: 
 script:
-  - docker run -e CI=true xjacky2wong/docker-react npm run test -- --coverage
-
+  # - docker run -e CI=true xjacky2wong/docker-react npm run test -- --coverage
+  - docker run -e CI=true xjacky2wong/docker-react npm run test
 deploy:
-  edge: true
+  # edge: true
   provider: elasticbeanstalk
   region: "ap-southeast-2"
   app: "docker-react"
