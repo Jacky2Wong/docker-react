@@ -1,0 +1,12 @@
+# If rakfefile not ofund 
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t xjacky2wong/docker-react -f Dockerfile.dev . 
+
+# Because jest library has changed, we use: 
+script:
+  - docker run -e CI=true xjacky2wong/docker-react npm run test -- --coverage
