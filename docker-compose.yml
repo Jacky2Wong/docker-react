@@ -12,16 +12,13 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
+  
   tests:
     build:
       # Where we want all files and folders to be pulled from
       context: .
       # Location of dockerfile for the web service
       dockerfile: Dockerfile.dev
-    # Remove ports in tests because we do not need them
-    # ports:
-    #   - "3000:3000"
-    # Do not try to map a folder to these files
     volumes:
       - /app/node_modules
       - .:/app
